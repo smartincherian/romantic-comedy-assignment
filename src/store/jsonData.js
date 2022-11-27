@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 
+//declaring variables
 const JSON_DATA = 'JSON_DATA';
 const JSON_ARRAY = 'JSON_ARRAY';
 const JSON_FILTER = 'JSON_FILTER';
+
 
 export function getJSONData(data) {
     return {
@@ -25,6 +27,7 @@ export function searchJSONArray(search) {
     }
 }
 
+//initial states
 const defaultData = {
     page: {
         title: "",
@@ -38,6 +41,7 @@ const defaultData = {
 const defaultArray = [];
 const defaultSearch = '';
 
+//reducer functions
 function getJSONDataReducer(state = defaultData, action) {
     switch (action.type) {
         case JSON_DATA:
@@ -74,18 +78,14 @@ function searchJSONArrayReducer(state = defaultSearch, action) {
 
         case JSON_FILTER:
             const filteredArray = action.contents.filter(item => item.name.includes(action.searchFilter))
-            // const filteredArray = state.filter(item => item.name.includes(action.searchFilter))
             return {filteredArray : filteredArray,
                 searchFilter : action.searchFilter
             }
-            // return action.searchFilter
 
         default:
             return state;
     }
 }
-
-
 
 const jsonDataApp = combineReducers({
     getJSONDataReducer, getJSONArrayReducer,

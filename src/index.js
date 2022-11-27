@@ -5,8 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { legacy_createStore as createStore }  from 'redux';
-// import birdsApp from './store/birds/birds';
-import jsonDataApp from './store/birds/jsonData';
+import jsonDataApp from './store/jsonData';
 
 // const store = createStore(birdsApp);
 const store = createStore(jsonDataApp);
