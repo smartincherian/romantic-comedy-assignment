@@ -2,6 +2,7 @@ import { Header } from './components/Header';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { Content } from './components/Content';
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
 
   const searchReduxArray = useSelector(state => state.searchJSONArrayReducer.filteredArray);
   const searchWord = useSelector(state => state.searchJSONArrayReducer.searchFilter);
-  console.log(searchReduxArray)
+  const isSearchOn = useSelector(state => state.searchJSONArrayReducer.isSearchOn);
+  console.log(isSearchOn)
 
   const contents = searchReduxArray ? searchReduxArray : contentsArrayRedux;
   const contentsLength = searchReduxArray ? searchReduxArray.length : contentsArrayRedux.length;
@@ -36,12 +38,9 @@ function App() {
       }
     )
       .then(function (response) {
-        console.log("initial response")
         return response.json();
       })
       .then(function (myJson) {
-        console.log("json after response")
-        // setcontentsArray(prevArray => [...prevArray, ...myJson.page['content-items'].content]);
         dispatch({ type: "JSON_DATA", jsonData: myJson });
         dispatch({ type: "JSON_ARRAY", jsonArray: myJson.page['content-items'].content, search: searchWord });
       });
@@ -49,7 +48,7 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, [page]);
+  }, [page, isSearchOn]);
 
 
   const getMoreData = () => {
@@ -59,6 +58,8 @@ function App() {
       }
       return;
     }
+
+    
 
     if (searchWord) {
       console.log("it reached here")
@@ -77,14 +78,14 @@ function App() {
   const searchHandler = (searchInput) => {
     const properSearchInput = searchInput.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
     dispatch({ type: "JSON_FILTER", searchFilter: properSearchInput, contents: contentsArrayRedux });
-    console.log(properSearchInput)
   }
 
   return (
     <div>
       <Header title={jsonDataRedux.page.title} onSearch={searchHandler} />
+      <Content contentsLength={contentsLength} contentsArrayRedux={contentsArrayRedux} contents={contents} getMoreData={getMoreData}/>
 
-      <div className='bg-black pt-9 mt-28 sm:mt-48' >
+      {/* <div className='bg-black pt-9 mt-28 sm:mt-48' >
         <InfiniteScroll
           dataLength={contentsLength}
           next={getMoreData}
@@ -106,7 +107,8 @@ function App() {
             )}
           </div>
         </InfiniteScroll>
-      </div>
+      </div> */}
+
     </div>
   );
 }

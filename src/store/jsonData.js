@@ -53,15 +53,15 @@ function getJSONDataReducer(state = defaultData, action) {
 }
 
 function getJSONArrayReducer(state = defaultArray, action) {
-    console.log(action.search == undefined || action.search=='')
-    
+    console.log(action.search == undefined || action.search == '')
+
     switch (action.type) {
 
         case JSON_ARRAY:
-            if(action.search == undefined || action.search==''){
-            return [...state, ...action.jsonArray]
+            if (action.search == undefined || action.search == '') {
+                return [...state, ...action.jsonArray]
             }
-            else{
+            else {
                 return [...state, ...action.jsonArray]
             }
 
@@ -71,15 +71,17 @@ function getJSONArrayReducer(state = defaultArray, action) {
 }
 
 function searchJSONArrayReducer(state = defaultSearch, action) {
-    {console.log(state)}
-            {console.log(action.searchFilter)}
+    { console.log(state) }
+    { console.log(action.searchFilter) }
     console.log(action.contents)
     switch (action.type) {
 
         case JSON_FILTER:
             const filteredArray = action.contents.filter(item => item.name.includes(action.searchFilter))
-            return {filteredArray : filteredArray,
-                searchFilter : action.searchFilter
+            return {
+                filteredArray: filteredArray,
+                searchFilter: action.searchFilter,
+                isSearchOn : action.searchFilter.length>0
             }
 
         default:
@@ -89,7 +91,7 @@ function searchJSONArrayReducer(state = defaultSearch, action) {
 
 const jsonDataApp = combineReducers({
     getJSONDataReducer, getJSONArrayReducer,
-     searchJSONArrayReducer
+    searchJSONArrayReducer
 });
 
 export default jsonDataApp
