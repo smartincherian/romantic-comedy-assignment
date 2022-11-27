@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/romantic-comedy-assignment/static/css/main.16d627da.css",
-    "main.js": "/romantic-comedy-assignment/static/js/main.a0ff2129.js",
+    "main.css": "/romantic-comedy-assignment/static/css/main.d73df49c.css",
+    "main.js": "/romantic-comedy-assignment/static/js/main.33bd98f8.js",
     "static/js/787.e0fe67c4.chunk.js": "/romantic-comedy-assignment/static/js/787.e0fe67c4.chunk.js",
     "static/media/poster2.jpg": "/romantic-comedy-assignment/static/media/poster2.bf23bfae49d854fec0f2.jpg",
     "static/media/poster1.jpg": "/romantic-comedy-assignment/static/media/poster1.d966e333249e4f74e821.jpg",
@@ -13,12 +13,12 @@
     "static/media/poster4.jpg": "/romantic-comedy-assignment/static/media/poster4.a2f1de9b0f0c656226d7.jpg",
     "static/media/poster7.jpg": "/romantic-comedy-assignment/static/media/poster7.8f23c2d5749c68467aaf.jpg",
     "index.html": "/romantic-comedy-assignment/index.html",
-    "main.16d627da.css.map": "/romantic-comedy-assignment/static/css/main.16d627da.css.map",
-    "main.a0ff2129.js.map": "/romantic-comedy-assignment/static/js/main.a0ff2129.js.map",
+    "main.d73df49c.css.map": "/romantic-comedy-assignment/static/css/main.d73df49c.css.map",
+    "main.33bd98f8.js.map": "/romantic-comedy-assignment/static/js/main.33bd98f8.js.map",
     "787.e0fe67c4.chunk.js.map": "/romantic-comedy-assignment/static/js/787.e0fe67c4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.16d627da.css",
-    "static/js/main.a0ff2129.js"
+    "static/css/main.d73df49c.css",
+    "static/js/main.33bd98f8.js"
   ]
 }
