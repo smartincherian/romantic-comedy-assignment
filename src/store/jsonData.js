@@ -53,7 +53,6 @@ function getJSONDataReducer(state = defaultData, action) {
 }
 
 function getJSONArrayReducer(state = defaultArray, action) {
-    console.log(action.search == undefined || action.search == '')
 
     switch (action.type) {
 
@@ -71,9 +70,6 @@ function getJSONArrayReducer(state = defaultArray, action) {
 }
 
 function searchJSONArrayReducer(state = defaultSearch, action) {
-    { console.log(state) }
-    { console.log(action.searchFilter) }
-    console.log(action.contents)
     switch (action.type) {
 
         case JSON_FILTER:
